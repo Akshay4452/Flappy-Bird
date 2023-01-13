@@ -25,12 +25,15 @@ public class BirdController : MonoBehaviour
     {
         if(!isDead) 
         {
-            Touch touch = Input.GetTouch(0);
-            if(touch.phase == UnityEngine.TouchPhase.Began)
+            if(Input.touchCount > 0)
             {
-                rb2d.velocity = Vector2.zero;
-                rb2d.AddForce(new Vector2 (0, upForce));
-            }
+                Touch touch = Input.GetTouch(0);
+                if(touch.phase == UnityEngine.TouchPhase.Began)
+                {
+                    rb2d.velocity = Vector2.zero;
+                    rb2d.AddForce(new Vector2 (0, upForce));
+                }
+            }   
         }  
         else
         {
